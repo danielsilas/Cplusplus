@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1525458008 source:c:\users\danie\desktop\biletul nr. 1\numere.in.c
+
+1525459118 source:c:\users\danie\desktop\biletul nr. 1\main.cpp
+	<iostream>
+	<fstream>
+
