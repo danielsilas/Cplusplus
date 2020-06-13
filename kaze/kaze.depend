@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1486843872 source:c:\users\danie\onedrive\documents\c++\kaze\main.cpp
+	<iostream>
+	<queue>
+	<cstring>
+

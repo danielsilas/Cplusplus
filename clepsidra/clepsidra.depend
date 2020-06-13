@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1487356625 source:c:\users\danie\onedrive\documents\c++\clepsidra\main.cpp
+	<fstream>
+	<vector>
+	<bitset>
+	<iostream>
+	<stack>
+	<set>
+
