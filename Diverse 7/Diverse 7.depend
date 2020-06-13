@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522455963 source:c:\users\danie\desktop\eseuri si pbinfo\source code\diverse 7\main.cpp
+	<fstream>
+	<algorithm>
+

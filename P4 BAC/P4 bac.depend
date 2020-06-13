@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1510952687 source:c:\users\danie\desktop\source code\p4 bac\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+

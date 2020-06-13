@@ -1,0 +1,471 @@
+---Varianta 2--
+S3.3
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream fin("NR.TXT");
+int main()
+{
+    int x,k=0,v[101];
+    while(fin>>x)
+        if(x>0)v[++k]=x;
+    for(int i=1;i<k;++i)
+        for(int j=i+1;j<=k;++j)
+            if(v[i]>v[j])swap(v[i],v[j]);
+    for(int i=1;i<=k;++i)cout<<v[i]<<" ";
+
+}
+S3.4
+#include <iostream>
+using namespace std;
+//a)
+int f(int n)
+{
+    int d=2,k=1;
+    while(d*d<=n)
+    {
+        while(n%d==0)
+        {
+            k++;
+            n/=d;
+        }
+        d++;
+    }
+    return k;
+}
+//b)
+int main()
+{
+    bool ok=false;
+    int n;
+    cin>>n;
+    if(n<10 && f(n)==1)
+        ok=true;
+    else if(n<100)
+    {
+        int rev;
+        rev=n%10*10+n/10;
+        if(f(n)==1 && f(rev)==1)
+            ok=true;
+    }
+    else if(n<1000)
+    {
+        int d1=n/100,d2=n/10%10,d3=n%10;
+        int n1,n2,n3,n4,n5;
+        n1=d1*100+d3*10+d2;
+        n2=d2*100+d1*10+d3;
+        n3=d2*100+d3*10+d1;
+        n4=d3*100+d1*10+d2;
+        n5=d3*100+d2*10+d1;
+        if(f(n)==1 &&  f(n1)==1 && f(n2)==1 && f(n3)==1 && f(n4)==1 && f(n5)==1)
+            ok=true;
+    }
+    if(ok)cout<<"DA";
+    else cout<<"NU";
+    return 0;
+}
+
+--- Varianta 3
+S3.3
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream fin("NR.TXT");
+int main()
+{
+    int x,k=0,v[101];
+    bool ok=0;
+    while(fin>>x)
+        if(x>99)v[++k]=x,ok=1;
+    for(int i=1;i<k;++i)
+        for(int j=i+1;j<=b;++j)
+            if(v[i]>v[j])swap(v[i],v[j]);
+    if(ok)for(int i=1;i<=k;++i)cout<<v[i]<<" ";
+    else cout<<"NU EXISTA\n";
+    return 0;
+}
+S3.4
+#include <iostream>
+
+using namespace std;
+
+int cif(int a,int b)
+{
+    int k=0;
+    while(a)
+    {
+        if(a%10==b)++k;
+        a/=10;
+    }
+    return k;
+}
+int main()
+{
+    int n,auxiliar=0;
+    cin>>n;
+    for(int i=9;i>=0;--i){
+        int y=cif(n,i);
+        if(y%2!=0)break;
+        else
+        {
+            for(int j=1;j<=y/2;++j)
+            auxiliar=auxiliar*10+i;
+        }}
+        if(auxiliar!=0)
+    for(int i=0;i<=9;++i){
+        int y=cif(n,i);
+        if(y%2!=0)break;
+        else
+        {
+            for(int j=1;j<=y/2;++j)
+            auxiliar=auxiliar*10+i;
+        }}
+        cout<<auxiliar<<endl;
+    return 0;
+}
+---Varianta 4
+S3.3
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream fin("NR.TXT");
+int main()
+{
+    int x,k=0,v[101];
+    bool ok=0;
+    while(fin>>x)
+        if(x>=0 && x<=99)v[++k]=x,ok=1;
+    for(int i=1;i<k;++i)
+        for(int j=i+1;j<=k;++j)
+            if(v[i]<v[j])swap(v[i],v[j]);
+    if(ok)for(int i=1;i<=k;++i)cout<<v[i]<<" ";
+    else cout<<"NU EXISTA\n";
+    return 0;
+}
+S3.4
+#include <iostream>
+
+using namespace std;
+
+int cif(int a,int b)
+{
+    int k=0;
+    while(a)
+    {
+        if(a%10==b)++k;
+        a/=10;
+    }
+    return k;
+}
+int main()
+{
+    int n,auxiliar=0;
+    cin>>n;
+    for(int i=1;i<=9;++i){
+        int y=cif(n,i);
+        if(y%2!=0){auxiliar=0;break;}
+        else
+        {
+            for(int j=1;j<=y/2;++j)
+            auxiliar=auxiliar*10+i;
+        }}
+        if(auxiliar!=0)
+    for(int i=9;i>0;--i){
+        int y=cif(n,i);
+        if(y%2!=0)break;
+        else
+        {
+            for(int j=1;j<=y/2;++j)
+            auxiliar=auxiliar*10+i;
+        }}
+
+
+        cout<<auxiliar<<endl;
+    return 0;
+}
+---Varianta 5
+S3.3
+#include <iostream>
+#include <fstream>
+using namespace std;
+ofstream fout("NR.TXT");
+int main()
+{
+    int n;
+    cin>>n;
+    while(n)
+    {
+        fout<<n<<" ";
+        n/=10;
+    }
+    return 0;
+}
+S3.4
+#include <iostream>
+#include <fstream>
+using namespace std;
+int f(int a)
+{
+    if(a==1)return 0;
+    int d=2;
+    while(a%d!=0)
+    ++d;
+    return d;
+}
+int main()
+{
+    int n,k=0,v[100],x;
+    cin>>n;
+    bool ok=0;
+    for(int i=1;i<=n;++i)
+    {
+        cin>>x;
+        if(f(x)==x)v[++k]=x,ok=1;
+    }
+    for(int i=1;i<k;++i)
+        for(int j=i+1;j<=k;++j)
+            if(v[i]>v[j])swap(v[i],v[j]);
+    if(ok)for(int i=1;i<=k;++i)
+        cout<<v[i]<<" ";
+    else cout<<"NU EXISTA\n";
+    return 0;
+}
+---Varianta 6
+S3.3
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,a[100],s=0;
+    cin>>n;
+    for(int i=1;i<=n;++i)
+    {
+        cin>>a[i];
+        s+=a[i];
+    }
+    for(int i=n;i>=1;--i)
+    {
+        cout<<s<<endl;
+        s-=a[i];
+    }
+    return 0;
+}
+S3.4
+//a)
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream din("BAC.TXT");
+int main()
+{
+    int x,y,k=1;
+    din>>y;
+    while(din>>x)
+    {
+        if(x!=y)
+        {
+            cout<<y<<" "<<k<<" ";
+            k=1;
+            y=x;
+        }
+        else k++;
+    }
+    cout<<y<<" "<<k;
+    return 0;
+}
+//b)
+Programul meu citeste primul termen al sirului apoi urmatorul, comparandul cu primul. Daca urmatorul element citit nu este egal cu primul atunci se afiseaza primul numar si contorul lui, reinitializand primul termen cu cel actual si contorul cu 1. Astfel programul este eficient din punct de vedere al compexitatii (O(n)), prin faptul ca in acelasi timp cu citirea se determina si numarul de termeni egali dintr-o secventa.
+---Varianta 7
+S3.3
+#include <iostream>
+#include <fstream>
+using namespace std;
+ofstream din("BAC.TXT");
+int main()
+{
+    int n,v[301];
+    cin>>n;
+    int m=3*n,p,u,ip=0,iu=0;
+    for(int i=1;i<=m;++i)
+    {
+            cin>>v[i];
+            if(ip==0 && i<=n && v[i]%2==0)p=v[i],ip=i;
+            if(i>2*n && v[i]%2!=0)u=v[i],iu=i;
+    }
+    if(ip && iu)
+        swap(v[ip],v[iu]);
+    for(int i=1;i<=m;++i)din<<v[i]<<" ";
+    return 0;
+}
+S3.4
+#include <iostream>
+
+using namespace std;
+//a)
+long sub(long n)
+{
+    int joker=5;
+    while(joker*2<=n){
+        joker*=2;
+    }
+    return joker;
+}
+//b)
+int main()
+{
+    int n;
+    cin>>n;
+    while(n>5)
+    {
+        int p=sub(n);
+        cout<<p<<" ";
+        n-=p;
+    }
+    cout<<n<<endl;
+    return 0;
+}
+---Varianta 8
+S3.3
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+ifstream fin("BAC.TXT");
+int main()
+{
+    int n,x,v[100],k=0,s=0;
+    fin>>n;
+    for(;n;--n)
+    {
+        fin>>x;
+
+        if((int)sqrt(x)==sqrt(x))v[++k]=x,s+=x;
+    }
+    for(int i=1;i<k;++i)
+        cout<<v[i]<<"+";
+    cout<<v[k]<<"="<<s<<endl;
+    return 0;
+}
+S3.4
+//a)
+#include <iostream>
+using namespace std;
+void sub(int a[100],int b[100],int n,int m)
+{
+    int i=1,j=1,ok=2;
+    while(true)
+    {
+        if(i<=n && ok==2)
+            if(b[j-1]>a[i])i++;
+            else
+        {ok=1,cout<<a[i]<<" ",++i;}
+        else
+        if(j<=m && ok==1)
+            if(a[i-1]>b[j])j++;
+        else
+        {ok=2,cout<<b[j]<<" ",++j;}
+        else break;
+    }
+}
+int main()
+{
+    int a[100],b[100],n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;++i)cin>>a[i];
+    for(int i=1;i<=m;++i)cin>>b[i];
+    sub(a,b,n,m);
+    return 0;
+}
+//b)
+Programul functioneaza in felul urmator:
+    -citeste cele doua siruri
+    -prin functia sub, print-o bucla se testeaza fiecare element si indice din cei doi vectori astfel incat sirul afisat sa fie crescator
+    Programul este eficient deoarece foloseste o complexitate liniara O(n+m), este nevoie de o singura parcurgere a celor 2 siruri.
+---Varianta 9
+S3.3
+void sub(int n,int k)
+{
+    int y=n*k;
+    while(y)
+    {
+        cout<<y<<" ";
+        y-=k;
+    }
+}
+S3.4
+//a)
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream din("BAC.TXT");
+bool fr[1000];
+int main()
+{
+    int x;
+    while(din>>x)
+        if(x>99 && x<1000)
+            fr[x]=true;
+    int k=0;
+            for(int i=999;i>99;--i){
+                if(!fr[i])cout<<i<<" ",++k;
+                if(k==2)break;
+            }
+
+    return 0;
+}
+//b)
+-Am folosit metoda cu vectorul binar care poate retine valoarea 1 sau 0 pentru numerele din intervalul [100,999]
+-Programul este eficient doearece foloseste o complexitae liniara o(n), n avand valoarea maxima de 1000
+---Varianta 10
+S3.3
+void sub(int n,int &a,int &b)
+{
+    int aa,bb;
+    bool ok=1;
+    aa=n;
+    while(ok)
+    {
+        for(int i=2;i*i<=aa;++i)
+            if(aa%i==0)
+            {ok=0;}
+            if(ok==0)
+           aa--,ok=1;
+            else break;
+    }
+    a=aa;
+    bb=a-1;
+    while(ok)
+    {
+        for(int i=2;i*i<=bb;++i)
+            if(bb%i==0)
+            {ok=0;}
+            if(ok==0)
+            bb--,ok=1;
+            else break;
+    }
+    b=bb;
+}
+S3.4
+//a)
+#include <iostream>
+#include <fstream>
+using namespace std;
+ifstream din("PRODUSE.TXT");
+struct
+{
+    long long price;
+}fr[10000];
+int main()
+{
+    int tip,pret,bucati;
+    while(din>>tip>>bucati>>pret){
+        fr[tip].price=fr[tip].price+bucati*pret;
+        }
+   for(int i=1;i<=9999;++i)
+        if(fr[i].price)cout<<i<<" "<<fr[i].price<<endl;
+    return 0;
+}
+//b)
+Programul acesta creaza o structura pentru vectorul de frecventa care sa retina pretul fiecarui tip de produs.
+Sursa foloseste o complexitate liniara (o(n)), n fiind numarul de linii din fisier, si este eficienta deoarece calculeaza pretul fiecarui tip de produs in acelasi timp cu citirea din fisier.
+---Varianta 11

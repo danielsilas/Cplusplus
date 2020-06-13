@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1521731267 source:c:\users\danie\desktop\eseuri si pbinfo\ubb\tablouri unidimensionale 25.11.2017\4.2018simularebac\main.cpp
+	<iostream>
+	<fstream>
+

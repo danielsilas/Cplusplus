@@ -1,0 +1,16 @@
+S3.3
+int duplicare(int &n)
+{
+    int ans=0,p=1;
+    while(n)
+    {
+
+        if(n%2==0)
+            ans=ans+n%10/2*p,p*=10;
+            ans=ans+n%10*p;
+        p*=10;
+        n/=10;
+    }
+    n=ans;
+}
+S3.4

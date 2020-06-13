@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1529431634 source:c:\users\danie\desktop\caractere\main.cpp
+	<iostream>
+	<string.h>
+

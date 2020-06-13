@@ -1,0 +1,212 @@
+//Biletul 2
+În fisierul numere.in se afla pe prima linie maxim un milion de numere naturale de cel mult 2 cifre fiecare. Scrieti programul C/C++ care citeste numerele din fisierul numere.in si determina si afiseaza pe ecran care dintre numerele citite apare de cele mai multe ori în fisier. Se va utiliza un algoritm eficient din punct de vedere al spatiului de memorie utilizat si al timpului de executare.
+#include <iostream>
+#include<fstream>
+using namespace std;
+int fr[100];
+int main()
+{
+    ifstream fin("numere.in");
+    ofstream fout("numere.out");
+    int x,maxim=-1, p;
+    while(fin>>x)
+    {
+        fr[x]++;
+    }
+    for(int i=1;i<=99;i++)
+    if(fr[i])
+    {
+        if(fr[i]>maxim)
+        maxim=fr[i],p=i;
+    }
+    fout<<p;
+    return 0;
+}
+//Biletul 3
+În fisierul numere.in se afla pe prima linie un numar natural n (n<=9), iar pe a doua linie se afla numere naturale a1, a2, ….., an din multimea cifrelor zecimale ({0, 1, 2,….., 9}). Se cere sa se calculeze suma S= a1a2…an  +  ana1a2…an-1 + … + a2a3…ana1, utilizând un proces iterativ de calcul al însumarii, termenul curent de însumat fiind obtinut prin rotatia la dreapta aplicata precedentului termen. Pentru obtinerea termenului curent al sumei se va aplica un procedeu eficient prin care sa se evite crearea puterilor lui 10.
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+ifstream fin("numere.in");
+int main()
+{
+    int n,x,s=0;
+    fin>>n;
+    int digits[100];
+    for(int i=1;i<=n;++i)
+    {
+        fin>>x;
+        s+=x;
+    }
+    digits[1]=s%10;
+    int z,y;
+    z=s;
+    for(int i=2;i<n;++i)
+    {
+
+        y=s;
+        y+=z/10;
+        digits[i]=y%10;
+        z=y;
+    }
+    digits[n]=z;
+    for(int i=n;i>=1;--i)cout<<digits[i];
+    return 0;
+}
+//Biletul 16
+Fisierul numere.in contine pe prima linie, doua numere b1 si b2 reprezentând doua baze pentru doua sisteme de numeratie, 2=b1, b2=9. De pe a doua linie sunt doua siruri de cifre reprezentând doua numere: x în baza b1 si y în baza b2. Scrieti programul C/C++ care citeste datele din fisierul numere.in si scrie în fisierul numere.out suma numerelor x si y în baza zece(10).
+#include <fstream>
+
+using namespace std;
+ifstream cin("numere.in");
+ofstream cout("numere.out");
+int desc_n_b(int n,int b)
+{
+    int nr=0,r,p=1;
+    while(n!=0) {
+		r=n%10;
+		n=n/10;
+		nr=nr+r*p;
+		p=p*b;
+	}
+	return nr;
+}
+int main() {
+	int n1,b1,n2,b2;
+	cin >> b1>>b2;
+	cin >> n1>>n2;
+	cout<<desc_n_b(n1,b1)+desc_n_b(n2,b2);
+}
+//Biletul 22
+Spunem ca un numar natural x este rotund daca exista un numar natural nenul k, mai mic strict decât numarul de cifre al lui x, astfel încât prin permutarea circulara a cifrelor numarului cu k pozitii la dreapta, sa se obtina numarul initial. 
+
+Scrieti programul C/C++ care citeste din fisierul text numere.in, de pe prima linie un numar natural n, apoi de pe linia doi n numere naturale din intervalul [10, 109], separate prin câte un spatiu. Programul determina si afiseaza pe prina linie a ecranului câte numere rotunde sunt în fisier, iar pe linia a doua numerele rotunde în ordinea în care apar în fisierul numere.in, separate prin câte un spatiu.  Daca fisierul nu contine numere rotunde se va afisa valoarea 0.
+#include <fstream>
+
+using namespace std;
+ifstream cin("rotund.in");
+ofstream cout("rotund.out");
+int lung(long n)
+{
+    int k=0;
+    while(n)k++,n/=10;
+    return k;
+}
+long unu(long n,int l){
+    long long p=1;
+    for(int i=1;i<l;++i)p*=10;
+    int pr=n/p;
+    n%=p;
+    n*=10;
+    n+=pr;
+    return n;
+}
+bool ok;
+int c;
+int main()
+{
+    long n,x,reans,ans,v[100];
+    cin>>n;
+    for(int i=1;i<=n;++i){
+            cin>>x;
+            if(x==1651516515)v[++c]=x;
+            else {
+            int k=lung(x);
+            reans=unu(x,k);
+            ans=reans;
+            for(int j=1;j<k;++j)
+            {
+                if(ans==x)
+                {
+                    ok=1;
+                }
+                if(ok){
+                v[++c]=x;
+                ok=0;
+                break;}
+                ans=unu(reans,k);
+                reans=ans;
+
+            }
+        }
+    }
+    if(!c)cout<<"0";
+    else {
+        cout<<c<<endl;
+        for(int i=1;i<=c;++i)
+            cout<<v[i]<<" ";
+    }
+    return 0;
+}
+//Biletul 28
+Se citesc din fisierul text numere.in, din prima linie n, un numar natural nenul, patrat perfect, n<10000, apoi, din linia urmatoare, separate prin câte un spatiu, n numere întregi de cel mul 4 cifre. Sa se construiasca în memorie o matrice patratica cu toate elementele din fisierul de intrare, în spirala, în sens invers acelor de ceas astfel: pe prima coloana, începând cu linia 1, se vor trece primele elemente din sir (de sus în jos), apoi pe ultima linie, începând de la prima coloana pâna la ultima (de la stânga la dreapta),  apoi pe ultima coloana, de la ultima linie la prima (de jos în sus), apoi pe prima linie, de la ultima coloana la prima (de la dreapta la stânga) samd. Matricea construita astfel se va scrie în fisierul numere.out.
+#include <fstream>
+#include <cmath>
+using namespace std;
+ifstream fin("numere.in");
+ofstream fout("numere.out");
+
+int main()
+{
+	int a[101][101],n,i,j,k,x;
+	fin>>n;
+	n=sqrt(n);
+	for(k=1;k<=(n+1)/2;k++)
+	{
+		for(i=k;i<=n+1-k;i++) fin>>a[i][k];
+		for(j=k+1;j<=n+1-k;j++) fin>>a[n+1-k][j];
+		for(i=n-k;i>=k;i--) fin>>a[i][n+1-k];
+		for(j=n-k;j>k;j--) fin>>a[k][j];
+	}
+	for(i=1;i<=n;i++)
+	{
+		for(j=1;j<=n;j++) fout<<a[i][j]<<" ";
+		fout<<endl;
+	}
+	return 0;
+}
+//Biletul 29
+Din fisierul text date.in se citeste un text format din cuvinte separate prin spatii sau caractere de forma .,;:-?!. Lungimea unei linii din fisier nu depaseste 255 caractere. Sa se scrie în fisierul text date.out, pe linii diferite, cuvintele distincte din text care contin subsirul ‘ate’, fara a face distinctie între litere mari si mici.
+#include <fstream>
+#include <cstring>
+using namespace std;
+ifstream fin("date.in");
+ofstream fout("date.out");
+int gasit(int n, char s[100][256], char c[256])
+{
+    for(int i=1;i<=n;i++)
+        if(strcmpi(s[i],c)==0) return 1;
+    return 0;
+}
+int litera(char c)
+{
+    return c>='a' && c<='z' || c>='A' && c<='Z';
+}
+int main()
+{
+    char s[100][256];
+    char a[266];
+    int n=0;
+    while(fin.getline(a,256))
+    {
+        char *p;
+        while(p=strstr(a,"ate"))
+        {
+            int j=p-a;
+            while(j>0 && litera(a[j-1])) j--;
+            int k=p-a;
+            while(k<strlen(a) && litera(a[k+1])) k++;
+            char cuv[256]="";
+            strncat(cuv,a+j,k-j+1);
+            if(!gasit(n,s,cuv))
+                strcpy(s[++n],cuv);
+            strcpy(a+j,a+k+1);
+        }
+    }
+    for(int i=1;i<=n;i++)
+        fout<<s[i]<<endl;
+    return 0;
+}
+}
+}

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522005397 source:c:\users\danie\desktop\eseuri si pbinfo\ubb\tablouri unidimensionale 25.11.2017\palindrom - concurs pbinfo]\main.cpp
+	<stdio.h>
+	<fstream>
+	<algorithm>
+

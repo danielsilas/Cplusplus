@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1517253345 source:c:\users\danie\desktop\eseuri si pbinfo\source code\2018\1\4\main.cpp
+	<fstream>
+	<climits>
+

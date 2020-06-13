@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1526938882 source:c:\users\danie\desktop\baban\main.cpp
+	<iostream>
+
+1552155984 source:c:\users\b&d\desktop\cpp\baban\main.cpp
+	<iostream>
+	<string.h>
+

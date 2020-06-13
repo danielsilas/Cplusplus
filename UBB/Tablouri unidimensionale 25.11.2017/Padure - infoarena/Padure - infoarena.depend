@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1521204145 source:c:\users\danie\desktop\eseuri si pbinfo\ubb\tablouri unidimensionale 25.11.2017\padure - infoarena\main.cpp
+	<fstream>
+	<queue>
+

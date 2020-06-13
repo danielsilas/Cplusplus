@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506534173 source:c:\users\danie\desktop\source code\big sum\main.cpp
+	<iostream>
+	<string.h>
+

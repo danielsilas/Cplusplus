@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1516143180 source:c:\users\danie\desktop\eseuri si pbinfo\source code\toate functiile predefinite\main.cpp
+	<iostream>
+	<stdlib.h>
+	<math.h>
+	<ctype.h>
+	<stdio.h>
+

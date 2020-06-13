@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1524518180 source:c:\users\danie\desktop\eseuri si pbinfo\vine bacu\probleme\main.cpp
+	<iostream>
+	<iomanip>
+	<math.h>
+

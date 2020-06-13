@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506528500 source:c:\users\danie\desktop\source code\siruri\main.cpp
+	<iostream>
+	<string.h>
+
