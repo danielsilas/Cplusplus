@@ -2,21 +2,22 @@
 #include <cstring>
 using namespace std;
 char s[100];
-int converse(char s[100],int lung)
+int converse(char s[100], int lung)
 {
-    int nr=0;
-    for(int i=1;i<=lung;++i)
+    int nr = 0;
+    for (int i = 1; i <= lung; ++i)
     {
-        if(s[i]>='A')
-            nr=nr*16+s[i]-'A'+10;
-        else nr=nr*16 + s[i]-'0';
+        if (s[i] >= 'A')
+            nr = nr * 16 + s[i] - 'A' + 10;
+        else
+            nr = nr * 16 + s[i] - '0';
     }
     return nr;
 }
 int main()
 {
-    cin>>s;
-    cout<<converse(s,strlen(s));
+    cin >> s;
+    cout << converse(s, strlen(s));
     return 0;
 }
 

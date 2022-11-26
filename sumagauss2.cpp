@@ -31,18 +31,18 @@ Pe m il putem afla din n - m = d ==> m = n - d;
 int main()
 {
     long long S, sq, aux, n, m, d, S2;
-    fin>>S;
+    fin >> S;
     S2 = S * 2;
-    for(d = 1; d * d <= S2; d++)
+    for (d = 1; d * d <= S2; d++)
     {
-        if(S2 % d == 0)            //verificam daca este divizor
+        if (S2 % d == 0) // verificam daca este divizor
         {
             aux = d + S2 / d - 1;
-            if(aux % 2 == 0)       //Din ecuatia 2n = d + 2S / d - 1, verificam daca este divizibil cu 2
+            if (aux % 2 == 0) // Din ecuatia 2n = d + 2S / d - 1, verificam daca este divizibil cu 2
             {
                 n = aux / 2;
                 m = n - d;
-                fout<<n<<' '<<m<<'\n';
+                fout << n << ' ' << m << '\n';
             }
         }
     }
